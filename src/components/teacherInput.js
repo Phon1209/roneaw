@@ -19,7 +19,7 @@ class teacherInput extends Component
     handleSelectOrganize(Organize)
     {
         this.setState(state => ({selectedOrganization : Organize
-                                ,selectedTeacher : state.selectedTeacher}));
+                                ,selectedTeacher : ''}));
     }
     handleSelectTeacher(Teacher)
     {

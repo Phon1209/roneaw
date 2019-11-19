@@ -21,8 +21,7 @@ class Search extends Component
     render()
     {
         const filteredOptions = this.props.options.filter(option => this.props.filter==='' || option.Organize === this.props.filter);
-        console.log(filteredOptions);
-        
+        // console.log(filteredOptions);
         return <SelectSearch  
                 height={172} 
                 value={this.props.value}
