@@ -18,8 +18,6 @@ class teacherInput extends Component
     }
     handleSelectOrganize(Organize)
     {
-        console.log(Organize);
-        
         this.setState(state => ({selectedOrganization : Organize
                                 ,selectedTeacher : state.selectedTeacher}));
     }
@@ -45,7 +43,7 @@ class teacherInput extends Component
                     value={this.state.selectedTeacher}
                     placeholder="Select your Name" 
                     handleChange={this.handleSelectTeacher}
-                    filter={this.state.Organize}/>
+                    filter={this.state.selectedOrganization}/>
         </>)
     }
 }

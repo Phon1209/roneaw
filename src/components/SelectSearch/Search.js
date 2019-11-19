@@ -11,32 +11,26 @@ function renderStyle(option)
     return (<span>{option.name}</span>)
 }
 
-function filterOptions(Options,filter)
-{
-    return filter === undefined ? Options : Options.filter(option => Number(option.Organize)===Number(filter));
-}
 /* Simple example */
 class Search extends Component
 {
-    constructor(props)
+    handleChange(value)
     {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-    }
-    handleChange(e)
-    {
-        // this.props.handleChange();
+        this.props.handleChange(value);
     }
     render()
     {
-        const filteredOptions =filterOptions(this.props.options,this.props.filter);
+        const filteredOptions = this.props.options.filter(option => this.props.filter==='' || option.Organize === this.props.filter);
+        console.log(filteredOptions);
+        
         return <SelectSearch  
                 height={172} 
+                value={this.props.value}
                 options={filteredOptions} 
                 name={this.props.name} 
                 placeholder={this.props.placeholder} 
                 renderOption={renderStyle}
-                onChange={this.handleChange}/>
+                onChange={({value}) => this.handleChange(value)}/>
     }
 }
 
