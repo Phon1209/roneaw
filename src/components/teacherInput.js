@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Search from './SelectSearch/Search'
 import Organize from './test/fakeOrg.js'
 import Teacher from './test/fakeTeacher'
-import '../css/rubbish.css'
 
 class teacherInput extends Component
 {
