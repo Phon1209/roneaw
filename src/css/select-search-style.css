@@ -1,12 +1,14 @@
-@import 'http://weloveiconfonts.com/api/?family=fontawesome';
-
-[class*="fontawesome-"]:before {
-    font-family: 'fontawesome', sans-serif;
-}
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+.Button{
+    text-decoration: none;
+}
+.disabled-link {
+    pointer-events: none;
+  }
 
 .select-search-box {
     max-width: 400px;

@@ -1,6 +1,5 @@
 import React from "react";
-import "../../App.css";
-import { Link } from "react-router-dom";
+import "../../css/App.css";
 import TI from "./teacherInput";
 import { UserConsumer } from "../userContext";
 
@@ -9,8 +8,7 @@ class Home extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <UserConsumer>{({ name }) => <h1>Hello {name}</h1>}</UserConsumer>
-          <Link to="/about">JK</Link>
+          <UserConsumer>{({ name }) => <h1>Hello {name==="" ? "Guest":name}</h1>}</UserConsumer>
           <TI />
         </header>
       </div>
