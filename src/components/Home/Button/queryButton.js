@@ -17,16 +17,16 @@ const ContainedButtons = props => {
   const { isDisable, onClick } = props;
   return (
     <div className={classes.root}>
-      <Link to="/form">
         <Button
           variant="contained"
           className="Button"
           onClick={onClick}
           disabled={isDisable}
+          component={ Link } 
+          to="/form"
         >
           Continue
         </Button>
-      </Link>
     </div>
   );
 };
