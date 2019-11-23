@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Search from './SelectSearch/Search'
 import Organize from './test/fakeOrg.js'
 import Teacher from './test/fakeTeacher'
+import ContainedButtons from './Button/queryButton';
 
 class teacherInput extends Component
 {
@@ -14,6 +15,10 @@ class teacherInput extends Component
         }
         this.handleSelectOrganize = this.handleSelectOrganize.bind(this);
         this.handleSelectTeacher = this.handleSelectTeacher.bind(this);
+    }
+    isContinueable(state)
+    {
+        return state.selectedOrganization !== '' && state.selectedTeacher!=='';
     }
     handleSelectOrganize(Organize)
     {
@@ -29,6 +34,7 @@ class teacherInput extends Component
     }
     render()
     {
+        const isDisable = !this.isContinueable(this.state);
         return (<>
             <Search options={Organize} 
                     name="Organize" 
@@ -43,6 +49,7 @@ class teacherInput extends Component
                     placeholder="Select your Name" 
                     handleChange={this.handleSelectTeacher}
                     filter={this.state.selectedOrganization}/>
+            <ContainedButtons isDisable={isDisable} link="material-ui.com/components/buttons/#contained-buttons"/>
         </>)
     }
 }
