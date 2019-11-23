@@ -1,5 +1,5 @@
 import SelectSearch from 'react-select-search'
-import '../../css/select-search-style.css'
+import '../../../css/select-search-style.css'
 import React,{Component} from 'react'
 /**
  * The options array should contain objects.

@@ -1,29 +1,44 @@
 import React from "react";
 import "./App.css";
-import TI from "./components/teacherInput";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { UserProvider } from "./components/userContext";
+import Form from "./components/Form";
+import Home from "./components/Home";
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about"></Route>
-        <Route path="/dashboard">{/* <Dashboard /> */}</Route>
-      </Switch>
-    </Router>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateName = state => {
+      this.setState({
+        name: state.selectedTeacher,
+        id: state.selectedOrganization
+      });
+    };
+    this.state = {
+      name: "",
+      id: 0,
+      updateName: this.updateName
+    };
+  }
+
+  render() {
+    return (
+      <UserProvider value={this.state}>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/about">Hello</Route>
+            <Route path="/dashboard">{/* <Dashboard /> */}</Route>
+            <Route path="/form">
+              <Form />
+            </Route>
+          </Switch>
+        </Router>
+      </UserProvider>
+    );
+  }
 }
 
-function Home() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <TI />
-      </header>
-    </div>
-  );
-}
 export default App;
