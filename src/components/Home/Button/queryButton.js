@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,14 +13,16 @@ const useStyles = makeStyles(theme => ({
 
 const ContainedButtons = props => {
   const classes = useStyles();
-  const { link, isDisable , onClick} = props;
+  const { isDisable, onClick } = props;
   // console.log(isDisable);
 
   return (
     <div className={classes.root}>
-          <Button variant="contained" onClick={onClick} href={link} disabled={isDisable}>
-            Continue
-          </Button>
+      <Link to="/form">
+        <Button variant="contained" onClick={onClick} disabled={isDisable}>
+          Continue
+        </Button>
+      </Link>
     </div>
   );
 };
